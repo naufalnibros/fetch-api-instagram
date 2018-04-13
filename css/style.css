@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i");
+html {
+  background: #222;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Lato', "Helvetica", Arial, sans-serif;
+  margin: 0;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 50%;
+}
+
+.img-featured-container {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.img-featured-container img {
+  width: 100%;
+  display: block;
+}
+.img-featured-container .img-backdrop {
+  background: linear-gradient(135deg, rgba(38, 163, 255, 0.85), rgba(83, 201, 179, 0.85));
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.img-featured-container .description-container {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 0 30px;
+  text-align: center;
+  line-height: 20px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  z-index: 2;
+  opacity: 0;
+  transition: all .2s ease;
+}
+.img-featured-container .description-container p {
+  font-weight: 300;
+  margin-bottom: 0;
+}
+.img-featured-container .description-container .caption {
+  display: none;
+  margin-bottom: 10px;
+}
+.img-featured-container .description-container .likes,
+.img-featured-container .description-container .comments {
+  margin: 0 5px;
+}
+.img-featured-container:hover img {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+}
+.img-featured-container:hover .img-backdrop, .img-featured-container:hover .description-container {
+  opacity: 1;
+}
+
+#btn-instafeed-load {
+  color: #fff;
+  background: #26a3ff;
+  font-size: 16px;
+  margin: 20px auto;
+  padding: 8px 40px;
+  display: block;
+  border: none;
+}
+
+@media screen and (min-width: 500px) {
+  .grid-sizer,
+  .grid-item {
+    width: 33.333%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .grid-sizer,
+  .grid-item {
+    width: 20%;
+  }
+}
+.modal-container {
+  text-align: center;
+  max-width: 500px;
+  top: 50%;
+  left: 50%;
+  right: -50%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 9999;
+  visibility: hidden;
+  padding: 0 50px;
+}
+.modal-container .modal-image-container {
+  position: relative;
+  z-index: 1;
+}
+.modal-container img {
+  width: 100%;
+  display: block;
+}
+.modal-container .modal-close-container {
+  background: #fff;
+  width: 30px;
+  height: 30px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  cursor: pointer;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+.modal-container .modal-close {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+}
+.modal-container .modal-controls {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+.modal-container .modal-prev {
+  left: 0;
+  -webkit-transform: translate(-100%, -50%) translateZ(0);
+          transform: translate(-100%, -50%) translateZ(0);
+}
+.modal-container .modal-next {
+  right: 0;
+  -webkit-transform: translate(100%, -50%) translateZ(0);
+          transform: translate(100%, -50%) translateZ(0);
+}
+.modal-container .modal-prev, .modal-container .modal-next {
+  font-size: 0;
+  width: 40px;
+  margin: 0 -10px;
+  padding: 10px;
+  top: 50%;
+  position: absolute;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.modal-container .modal-prev svg, .modal-container .modal-next svg {
+  fill: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+}
+.modal-container .modal-prev svg:hover, .modal-container .modal-next svg:hover {
+  fill: white;
+}
+.modal-container .modal-body {
+  background: #fff;
+  padding: 10px;
+  width: 100%;
+  bottom: 0;
+}
+.modal-container .modal-title, .modal-container .modal-description {
+  color: #777;
+  font-size: 14px;
+  margin: 0;
+}
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  cursor: pointer;
+  z-index: 9998;
+  visibility: hidden;
+}
